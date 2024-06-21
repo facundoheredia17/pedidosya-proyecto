@@ -1,0 +1,133 @@
+.restaurant-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 1100px; /* Esta regla está duplicada */
+  }
+  
+  .restaurant-logo {
+    width: 100px; 
+    height: auto; 
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .view-products-button {
+    background-color: #ff2a3f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-products-button:hover {
+    background-color: #d44141;
+  }
+  
+  .view-products-button:active {
+    background-color: #d44141;
+  }
+  
+  .product-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 1100px; /* Esta regla está duplicada */
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .add-to-cart-button {
+    background-color: #ff2a3f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #d44141;
+  }
+  
+  .add-to-cart-button:active {
+    background-color: #d44141;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ff2a3f;
+    color: white;
+  }
+  
+  .navbar-logo {
+    height: 60px;
+    margin-right: 20px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin-right: 20px;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  nav {
+    background-color: #ff2a3f;
+    color: white;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  

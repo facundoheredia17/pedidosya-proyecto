@@ -1,0 +1,369 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #444;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+nav {
+  background-color: #ff2a3f;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+nav ul li button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav ul li button:hover {
+  text-decoration: underline;
+}
+
+nav .logo-boton {
+  padding: 1px;
+}
+
+nav .logo-boton img {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.home-container {
+  text-align: center;
+  margin-top: -500px;
+}
+
+.home-title {
+  font-size: 28px;
+  color: #333;
+}
+
+.home-text {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.restaurantes-container {
+  width: 80%; 
+  max-width: 1000px;
+  margin: -200px auto -20px;
+}
+
+.restaurante-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.restaurante-logo {
+  width: 100px;
+  height: auto; 
+  margin-right: 20px; 
+}
+
+.restaurante-info {
+  flex: 1;
+}
+
+.restaurante-info h3 {
+  font-size: 20px;
+  color: #333; 
+  margin-bottom: 5px; 
+}
+
+.restaurante-info p {
+  color: #666; 
+  font-size: 16px; 
+  margin-bottom: 10px; 
+}
+
+.restaurante-info button {
+  background-color: #ff2a3f; 
+  color: white;
+  border: none; 
+  padding: 8px 16px; 
+  cursor: pointer;
+  font-size: 14px; 
+  border-radius: 5px; 
+}
+
+.restaurante-info button:hover {
+  background-color: #aa1d2b;
+}
+
+.productos-page {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px; 
+}
+
+.productos-container {
+  flex: 1;
+  margin-right: 320px; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  overflow-y: auto; 
+  max-height: calc(100vh - 100px); 
+}
+
+.producto-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.producto-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.producto-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-products-button, .back-button, .eliminar-button {
+  background-color: #ff2a3f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.view-products-button:hover, .back-button:hover, .eliminar-button:hover {
+  background-color: #d44141;
+}
+
+.pedido-container {
+  width: 260px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.pedido-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.pedido-item:last-child {
+  border-bottom: none;
+}
+
+.pedido-subtotal {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+.pedidos-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-title {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pedido-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.restaurante-name {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.productos-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.producto-item-pedidos {
+  font-size: 16px;
+  color: #666;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.producto-item:last-child {
+  border-bottom: none;
+}
+
+.estado-pedido {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.estado-pedido.entregado {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.estado-pedido.en-proceso {
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+}
+.total-pedido {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right;
+  color: #333;
+}
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seccion-home {
+  background-color: #f8f8f8;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.titulo-home {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.descripcion-home {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.boton {
+  background-color: #ff2a3f;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #d44141;
+}
+
+.seccion-info {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.titulo {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.descripcion-info {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
