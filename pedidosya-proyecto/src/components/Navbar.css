@@ -1,0 +1,66 @@
+nav {
+  background-color: #ff2a3f;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Para distribuir los elementos en los extremos */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+  margin-right: auto; /* Empuja el primer elemento (logo) hacia la izquierda */
+}
+
+nav ul li button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav ul li button:hover {
+  text-decoration: underline;
+}
+
+nav .logo-boton {
+  padding: 1px;
+}
+
+nav .logo-boton img {
+  height: 60px;
+  vertical-align: middle;
+}
+
+
+nav .cerrar-sesion {
+  margin-left: 940px;
+}
+
+nav .cerrar-sesion button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav .cerrar-sesion button img {
+  height: 24px;
+}

@@ -1,0 +1,55 @@
+.productos-page {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px; 
+  }
+  
+  .productos-container {
+    flex: 1;
+    margin-right: 320px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto; 
+    max-height: calc(100vh - 100px); 
+  }
+  
+  .producto-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .producto-logo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .producto-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .view-products-button, .back-button, .eliminar-button {
+    background-color: #ff2a3f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .view-products-button:hover, .back-button:hover, .eliminar-button:hover {
+    background-color: #d44141;
+  }
+  

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Restaurantes.css';
 
 const Restaurantes = ({ cambiarPagina }) => {
   const restaurantes = [

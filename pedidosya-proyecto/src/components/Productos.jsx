@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Productos.css';
 
 const Productos = ({ restauranteId, cambiarPagina }) => {
   const [pedido, setPedido] = useState([]);
