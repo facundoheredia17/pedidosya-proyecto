@@ -5,7 +5,10 @@ import Restaurantes from './pages/Restaurantes';
 import Productos from './components/Productos';
 import Pedidos from './pages/Pedidos';
 import Login from './pages/Login';
+import Footer from './components/Footer';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const App = () => {
   const [paginaActual, setPaginaActual] = useState('');
@@ -53,7 +56,10 @@ const App = () => {
   return (
     <div className="App">
       {autenticado && <Navbar cambiarPagina={cambiarPagina} cerrarSesion={cerrarSesion} />}
-      {contenidoPagina}
+      <div className="MainContent">
+        {contenidoPagina}
+      </div>
+      <Footer />
     </div>
   );
 };

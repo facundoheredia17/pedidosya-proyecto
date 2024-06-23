@@ -1,7 +1,9 @@
 .home-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .seccion-home,
@@ -41,7 +43,6 @@
   background-color: #d44141;
 }
 
-
 .seccion-info {
   padding: 20px;
   background-color: #fff;
@@ -53,10 +54,6 @@
   font-size: 24px;
   color: #333;
   margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
 
 .descripcion-info {
