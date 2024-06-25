@@ -36,6 +36,7 @@
   .producto-info {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   
   .view-products-button, .back-button, .eliminar-button {

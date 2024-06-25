@@ -1,52 +1,112 @@
 .restaurantes-container {
-    width: 80%; 
-    max-width: 1000px;
-    margin: -200px auto -20px;
+  width: 80%; 
+  max-width: 1000px;
+  margin: 50px auto; 
+  padding: 20px; 
+}
+
+.restaurante-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+}
+
+.restaurante-logo {
+  width: 100px;
+  height: auto; 
+  margin-right: 20px; 
+  flex-shrink: 0; 
+}
+
+.restaurante-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.restaurante-info h3 {
+  font-size: 20px;
+  color: #333; 
+  margin-bottom: 5px; 
+}
+
+.restaurante-info p {
+  color: #666; 
+  font-size: 16px; 
+  margin-bottom: 10px; 
+}
+
+.restaurante-info button {
+  background-color: #ff2a3f; 
+  color: white;
+  border: none; 
+  padding: 8px 16px; 
+  cursor: pointer;
+  font-size: 14px; 
+  border-radius: 5px; 
+}
+
+.restaurante-info button:hover {
+  background-color: #aa1d2b;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .restaurantes-container {
+    width: 90%;
+    margin: 20px auto;
   }
-  
-  .restaurante-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
+
   .restaurante-logo {
-    width: 100px;
-    height: auto; 
-    margin-right: 20px; 
+    width: 80px;
+    margin-right: 10px;
   }
-  
-  .restaurante-info {
-    flex: 1;
-  }
-  
+
   .restaurante-info h3 {
-    font-size: 20px;
-    color: #333; 
-    margin-bottom: 5px; 
+    font-size: 18px;
   }
-  
+
   .restaurante-info p {
-    color: #666; 
-    font-size: 16px; 
-    margin-bottom: 10px; 
+    font-size: 14px;
   }
-  
+
   .restaurante-info button {
-    background-color: #ff2a3f; 
-    color: white;
-    border: none; 
-    padding: 8px 16px; 
-    cursor: pointer;
-    font-size: 14px; 
-    border-radius: 5px; 
+    padding: 6px 12px;
+    font-size: 12px;
   }
-  
-  .restaurante-info button:hover {
-    background-color: #aa1d2b;
+}
+
+@media (max-width: 480px) {
+  .restaurantes-container {
+    width: 100%;
+    margin: 10px auto;
   }
-  
+
+  .restaurante-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurante-logo {
+    width: 60px;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .restaurante-info h3 {
+    font-size: 16px;
+  }
+
+  .restaurante-info p {
+    font-size: 12px;
+  }
+
+  .restaurante-info button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}

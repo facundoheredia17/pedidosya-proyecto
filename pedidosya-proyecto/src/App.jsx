@@ -9,56 +9,55 @@ import Footer from './components/Footer';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-
 const App = () => {
-  const [paginaActual, setPaginaActual] = useState('');
-  const [autenticado, setAutenticado] = useState(false);
+  const [pagina, setPagina] = useState(localStorage.getItem('autenticado') === 'true' ? 'home' : 'login');
+  const [autenticado, setAutenticado] = useState(localStorage.getItem('autenticado') === 'true');
+  const [restauranteId, setRestauranteId] = useState(null);
 
-  useEffect(() => {
-    const estaAutenticado = localStorage.getItem('autenticado') === 'true';
-    setAutenticado(estaAutenticado);
-    if (estaAutenticado) {
-      setPaginaActual('home'); // Cambia a la página de inicio después de verificar la autenticación
+  const cambiarPagina = (nuevaPagina) => {
+    if (nuevaPagina.startsWith('productos-')) {
+      const id = parseInt(nuevaPagina.split('-')[1]);
+      setRestauranteId(id);
+      setPagina('productos');
     } else {
-      setPaginaActual('login'); // Cambia a la página de login si no está autenticado
+      setPagina(nuevaPagina);
     }
-  }, []);
-
-  const cambiarPagina = (pagina) => {
-    setPaginaActual(pagina);
   };
 
   const cerrarSesion = () => {
+    localStorage.removeItem('autenticado');
     setAutenticado(false);
-    localStorage.setItem('autenticado', 'false');
-    setPaginaActual('login');
+    setPagina('login');
   };
 
-  let contenidoPagina;
-
-  if (autenticado) {
-    if (paginaActual === 'home') {
-      contenidoPagina = <Home />;
-    } else if (paginaActual === 'restaurantes') {
-      contenidoPagina = <Restaurantes cambiarPagina={cambiarPagina} />;
-    } else if (paginaActual.startsWith('productos-')) {
-      const restauranteId = parseInt(paginaActual.split('-')[1]);
-      contenidoPagina = <Productos restauranteId={restauranteId} cambiarPagina={cambiarPagina} />;
-    } else if (paginaActual === 'pedidos') {
-      contenidoPagina = <Pedidos />;
-    } else {
-      contenidoPagina = <Home />;
+  useEffect(() => {
+    if (autenticado && pagina === 'login') {
+      setPagina('home');
     }
-  } else {
-    contenidoPagina = <Login cambiarPagina={cambiarPagina} />;
-  }
+  }, [autenticado]);
+
+  const renderContent = () => {
+    switch (pagina) {
+      case 'home':
+        return <Home cambiarPagina={cambiarPagina} />;
+      case 'restaurantes':
+        return <Restaurantes cambiarPagina={cambiarPagina} />;
+      case 'productos':
+        return <Productos restauranteId={restauranteId} cambiarPagina={cambiarPagina} />;
+      case 'pedidos':
+        return <Pedidos />;
+      case 'login':
+      default:
+        return <Login cambiarPagina={cambiarPagina} setAutenticado={setAutenticado} />;
+    }
+  };
 
   return (
-    <div className="App">
-      {autenticado && <Navbar cambiarPagina={cambiarPagina} cerrarSesion={cerrarSesion} />}
-      <div className="MainContent">
-        {contenidoPagina}
-      </div>
+    <div>
+      {autenticado && pagina !== 'login' && (
+        <Navbar cambiarPagina={cambiarPagina} cerrarSesion={cerrarSesion} />
+      )}
+      {renderContent()}
       <Footer />
     </div>
   );

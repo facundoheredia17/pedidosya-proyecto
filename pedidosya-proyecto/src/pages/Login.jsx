@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-const Login = ({ cambiarPagina }) => {
+const Login = ({ cambiarPagina, setAutenticado }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const usuariosValidos = [
+    { email: 'facundoheredia951@gmail.com', password: '123456789' },
+    { email: 'hsanchez95@gmail.com', password: '123456789' },
+    { email: 'admin@pedidosya.com', password: 'adminpeya' },
+    { email: '3816095123', password: '123456789' },
+  ];
 
   const handleLogin = (event) => {
     event.preventDefault();
 
-    if (email === 'facundoheredia951@gmail.com' && password === '123456789') {
+    const usuarioValido = usuariosValidos.find(
+      (usuario) => usuario.email === email && usuario.password === password
+    );
+
+    if (usuarioValido) {
       localStorage.setItem('autenticado', 'true');
-      cambiarPagina('home'); // Redirige a la página de home después del inicio de sesión exitoso
+      setAutenticado(true);
+      cambiarPagina('home');
     } else {
       alert('Credenciales incorrectas');
     }
@@ -21,9 +33,9 @@ const Login = ({ cambiarPagina }) => {
       <form className="login-form" onSubmit={handleLogin}>
         <h2 className="login-title">Iniciar Sesión</h2>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email/Teléfono:</label>
           <input
-            type="email"
+            type="text"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

@@ -21,12 +21,12 @@ const Navbar = ({ cambiarPagina, cerrarSesion }) => {
         <li><button onClick={() => cambiarPagina('home')}>Inicio</button></li>
         <li><button onClick={() => cambiarPagina('restaurantes')}>Restaurantes</button></li>
         <li><button onClick={() => cambiarPagina('pedidos')}>Pedidos</button></li>
-        <li className="cerrar-sesion">
+      </ul>
+        <div className="cerrar-sesion">
           <button onClick={handleCerrarSesion}>
             <img src="/logout.png" alt="Cerrar Sesión" />
           </button>
-        </li>
-      </ul>
+        </div>
     </nav>
   );
 };
