@@ -1,31 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = ({ cambiarPagina, cerrarSesion }) => {
-  const handleClickLogo = () => {
-    cambiarPagina('home'); // Cambia 'inicio' a 'home'
-  };
-
+const Navbar = ({ cerrarSesion }) => {
   const handleCerrarSesion = () => {
     cerrarSesion();
   };
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <button onClick={handleClickLogo} className="boton-logo">
-            <img src="/logopeya.jpg" alt="Pedidos Ya Logo" />
-          </button>
+    <nav className="barra-navegacion">
+      <ul className="lista-items">
+        <li className="item-logo">
+          <Link to="/" className="enlace-logo">
+            <img src="/logopeya.jpg" alt="Pedidos Ya Logo" className="logo" />
+          </Link>
         </li>
-        <li><button onClick={() => cambiarPagina('home')}>Inicio</button></li>
-        <li><button onClick={() => cambiarPagina('restaurantes')}>Restaurantes</button></li>
-        <li><button onClick={() => cambiarPagina('pedidos')}>Pedidos</button></li>
+        <li className="item">
+          <Link to="/home" className="enlace">Inicio</Link>
+        </li>
+        <li className="item">
+          <Link to="/restaurantes" className="enlace">Restaurantes</Link>
+        </li>
+        <li className="item">
+          <Link to="/pedidos" className="enlace">Pedidos</Link>
+        </li>
       </ul>
       <div className="boton-cerrar-sesion">
-        <button onClick={handleCerrarSesion}>
-          <img src="/logout.png" alt="Cerrar Sesión" />
-        </button>
+        <Link to="/login" className="boton" onClick={handleCerrarSesion}>
+          <img src="/logout.png" alt="Cerrar Sesión" className="icono" />
+        </Link>
       </div>
     </nav>
   );

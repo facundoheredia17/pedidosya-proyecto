@@ -1,4 +1,4 @@
-nav {
+.barra-navegacion {
   background-color: #ff2a3f;
   padding: 10px 20px;
   width: 100%;
@@ -11,7 +11,7 @@ nav {
   z-index: 1000;
 }
 
-nav ul {
+.lista-items {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -19,82 +19,80 @@ nav ul {
   align-items: center;
 }
 
-nav ul li {
+.item {
   margin-left: 20px;
 }
 
-nav ul li:first-child {
+.item:first-child {
   margin-left: 0;
   margin-right: auto;
 }
 
-nav ul li button {
-  background: none;
-  border: none;
+.enlace {
+  text-decoration: none;
   color: white;
-  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
 }
 
-nav ul li button:hover {
+.enlace:hover {
   text-decoration: underline;
 }
 
-nav .boton-logo {
+.enlace-logo {
   padding: 1px;
 }
 
-nav .boton-logo img {
+.logo {
   height: 60px;
   vertical-align: middle;
 }
 
-nav .boton-cerrar-sesion {
+.boton-cerrar-sesion {
   display: block;
   align-items: center;
   position: relative;
   right: 50px;
 }
 
-nav .boton-cerrar-sesion button {
+.boton {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-nav .boton-cerrar-sesion button img {
+.icono {
   height: 24px;
 }
 
 @media (max-width: 768px) {
-  nav ul {
+  .lista-items {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 10px; 
+    padding-top: 10px;
   }
 
-  nav ul li {
+  .item {
     margin-left: 0;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
   }
 
-  nav .boton-cerrar-sesion {
+  .boton-cerrar-sesion {
     margin-left: auto;
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  nav {
+  .barra-navegacion {
     padding: 10px;
   }
 
-  nav .boton-logo img {
+  .logo {
     height: 50px;
   }
 
-  nav ul li button {
+  .enlace {
     font-size: 14px;
   }
 }

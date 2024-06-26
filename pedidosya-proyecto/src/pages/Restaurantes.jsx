@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Restaurantes.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Restaurantes = ({ cambiarPagina }) => {
   const restaurantes = [
@@ -18,19 +21,29 @@ const Restaurantes = ({ cambiarPagina }) => {
   ];
 
   return (
-    <div className="restaurantes-container">
-      <h2>Restaurantes</h2>
-      {restaurantes.map((restaurante) => (
-        <div key={restaurante.id} className="restaurante-item">
-          <img src={restaurante.logo} alt={`Logo de ${restaurante.nombre}`} className="restaurante-logo" />
-          <div className="restaurante-info">
-            <h3>{restaurante.nombre}</h3>
-            <p>{restaurante.descripcion}</p>
-            <button onClick={() => cambiarPagina(`productos-${restaurante.id}`)}>Ver Productos</button>
+    <>
+      <Navbar />
+      <div className="restaurantes-container">
+        <h2>Restaurantes</h2>
+        {restaurantes.map((restaurante) => (
+          <div key={restaurante.id} className="restaurante-item">
+            <img
+              src={restaurante.logo}
+              alt={`Logo de ${restaurante.nombre}`}
+              className="restaurante-logo"
+            />
+            <div className="restaurante-info">
+              <h3>{restaurante.nombre}</h3>
+              <p>{restaurante.descripcion}</p>
+              <Link to={`/productos-${restaurante.id}`} className="boton">
+                Ver Productos
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <Footer />
+    </>
   );
 };
 

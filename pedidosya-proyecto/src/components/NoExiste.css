@@ -1,0 +1,33 @@
+.contenedor-error {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ff0052;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 600px;
+  }
+  
+  .titulo-error {
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  .imagen-error {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .enlace-inicio {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .enlace-inicio:hover {
+    color: #000000;
+  }
+  
