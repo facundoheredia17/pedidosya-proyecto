@@ -1,4 +1,4 @@
-.login-container {
+.contenedor-inicio-sesion {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.login-container::before {
+.contenedor-inicio-sesion::before {
   content: "";
   position: absolute;
   top: 0;
@@ -23,7 +23,7 @@
   z-index: -1;
 }
 
-.login-form {
+.formulario-inicio-sesion {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 40px;
   border-radius: 10px;
@@ -32,31 +32,31 @@
   z-index: 0;
 }
 
-.login-title {
+.titulo-inicio-sesion {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
   color: #333;
 }
 
-.form-group {
+.grupo-formulario {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.grupo-formulario label {
   display: block;
   margin-bottom: 5px;
   color: #666;
 }
 
-.form-group input {
+.grupo-formulario input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.login-button {
+.boton-inicio-sesion {
   width: 100%;
   padding: 10px;
   background-color: #ff2a3f;
@@ -67,6 +67,6 @@
   font-size: 16px;
 }
 
-.login-button:hover {
+.boton-inicio-sesion:hover {
   background-color: #d44141;
 }

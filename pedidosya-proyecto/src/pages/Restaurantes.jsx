@@ -20,7 +20,7 @@ const Restaurantes = ({ cambiarPagina }) => {
   return (
     <div className="restaurantes-container">
       <h2>Restaurantes</h2>
-      {restaurantes.map(restaurante => (
+      {restaurantes.map((restaurante) => (
         <div key={restaurante.id} className="restaurante-item">
           <img src={restaurante.logo} alt={`Logo de ${restaurante.nombre}`} className="restaurante-logo" />
           <div className="restaurante-info">

@@ -7,10 +7,10 @@ const Home = ({ cambiarPagina }) => {
   };
 
   return (
-    <div className="home-container">
-      <div className="seccion-home">
-        <h2 className="titulo-home">¡Bienvenido/a a nuestra aplicación de pedidos!</h2>
-        <p className="descripcion-home">
+    <div className="contenedor-inicio">
+      <div className="seccion-inicio">
+        <h2 className="titulo-inicio">¡Bienvenido/a a nuestra aplicación de pedidos!</h2>
+        <p className="descripcion-inicio">
           En nuestra plataforma podrás descubrir una variedad de restaurantes y productos deliciosos.
           Explora y realiza tu pedido con tan solo unos clics.
         </p>

@@ -29,10 +29,10 @@ const Login = ({ cambiarPagina, setAutenticado }) => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2 className="login-title">Iniciar Sesión</h2>
-        <div className="form-group">
+    <div className="contenedor-inicio-sesion">
+      <form className="formulario-inicio-sesion" onSubmit={handleLogin}>
+        <h2 className="titulo-inicio-sesion">Iniciar Sesión</h2>
+        <div className="grupo-formulario">
           <label htmlFor="email">Email/Teléfono:</label>
           <input
             type="text"
@@ -42,7 +42,7 @@ const Login = ({ cambiarPagina, setAutenticado }) => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="grupo-formulario">
           <label htmlFor="password">Contraseña:</label>
           <input
             type="password"
@@ -52,7 +52,7 @@ const Login = ({ cambiarPagina, setAutenticado }) => {
             required
           />
         </div>
-        <button type="submit" className="login-button">Iniciar Sesión</button>
+        <button type="submit" className="boton-inicio-sesion">Iniciar Sesión</button>
       </form>
     </div>
   );

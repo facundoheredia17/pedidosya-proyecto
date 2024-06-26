@@ -3,7 +3,7 @@ import './Navbar.css';
 
 const Navbar = ({ cambiarPagina, cerrarSesion }) => {
   const handleClickLogo = () => {
-    cambiarPagina('home');
+    cambiarPagina('home'); // Cambia 'inicio' a 'home'
   };
 
   const handleCerrarSesion = () => {
@@ -14,7 +14,7 @@ const Navbar = ({ cambiarPagina, cerrarSesion }) => {
     <nav>
       <ul>
         <li>
-          <button onClick={handleClickLogo} className="logo-boton">
+          <button onClick={handleClickLogo} className="boton-logo">
             <img src="/logopeya.jpg" alt="Pedidos Ya Logo" />
           </button>
         </li>
@@ -22,11 +22,11 @@ const Navbar = ({ cambiarPagina, cerrarSesion }) => {
         <li><button onClick={() => cambiarPagina('restaurantes')}>Restaurantes</button></li>
         <li><button onClick={() => cambiarPagina('pedidos')}>Pedidos</button></li>
       </ul>
-        <div className="cerrar-sesion">
-          <button onClick={handleCerrarSesion}>
-            <img src="/logout.png" alt="Cerrar Sesión" />
-          </button>
-        </div>
+      <div className="boton-cerrar-sesion">
+        <button onClick={handleCerrarSesion}>
+          <img src="/logout.png" alt="Cerrar Sesión" />
+        </button>
+      </div>
     </nav>
   );
 };

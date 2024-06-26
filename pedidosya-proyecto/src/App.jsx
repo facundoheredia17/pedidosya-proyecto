@@ -10,10 +10,12 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const App = () => {
-  const [pagina, setPagina] = useState(localStorage.getItem('autenticado') === 'true' ? 'home' : 'login');
+  
+  const [pagina, setPagina] = useState(localStorage.getItem('pagina') || 'login');
   const [autenticado, setAutenticado] = useState(localStorage.getItem('autenticado') === 'true');
   const [restauranteId, setRestauranteId] = useState(null);
 
+  
   const cambiarPagina = (nuevaPagina) => {
     if (nuevaPagina.startsWith('productos-')) {
       const id = parseInt(nuevaPagina.split('-')[1]);
@@ -22,6 +24,8 @@ const App = () => {
     } else {
       setPagina(nuevaPagina);
     }
+   
+    localStorage.setItem('pagina', nuevaPagina);
   };
 
   const cerrarSesion = () => {
@@ -30,11 +34,17 @@ const App = () => {
     setPagina('login');
   };
 
+ 
   useEffect(() => {
-    if (autenticado && pagina === 'login') {
-      setPagina('home');
+
+    const storedPage = localStorage.getItem('pagina');
+    if (autenticado && storedPage !== 'login') {
+      setPagina(storedPage || 'home');
+    } else {
+      setPagina('login');
     }
   }, [autenticado]);
+
 
   const renderContent = () => {
     switch (pagina) {

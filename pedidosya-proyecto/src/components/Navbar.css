@@ -41,32 +41,31 @@ nav ul li button:hover {
   text-decoration: underline;
 }
 
-nav .logo-boton {
+nav .boton-logo {
   padding: 1px;
 }
 
-nav .logo-boton img {
+nav .boton-logo img {
   height: 60px;
   vertical-align: middle;
 }
 
-nav .cerrar-sesion {
+nav .boton-cerrar-sesion {
   display: block;
   align-items: center;
   position: relative;
   right: 50px;
 }
 
-nav .cerrar-sesion button {
+nav .boton-cerrar-sesion button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-nav .cerrar-sesion button img {
+nav .boton-cerrar-sesion button img {
   height: 24px;
 }
-
 
 @media (max-width: 768px) {
   nav ul {
@@ -80,19 +79,18 @@ nav .cerrar-sesion button img {
     margin-bottom: 10px; 
   }
 
-  nav .cerrar-sesion {
+  nav .boton-cerrar-sesion {
     margin-left: auto;
     margin-top: 10px; 
   }
 }
-
 
 @media (max-width: 480px) {
   nav {
     padding: 10px;
   }
 
-  nav .logo-boton img {
+  nav .boton-logo img {
     height: 50px;
   }
 

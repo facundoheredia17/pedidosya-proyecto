@@ -72,38 +72,38 @@ const Productos = ({ restauranteId, cambiarPagina }) => {
   };
 
   return (
-    <div className="productos-page">
-      <div className="productos-container">
+    <div className="pagina-productos">
+      <div className="contenedor-productos">
         <h2>Productos</h2>
         {productos.map(producto => (
-          <div key={producto.id} className="producto-item">
-            <img src={producto.imagen} alt={`Imagen de ${producto.nombre}`} className="producto-logo" />
-            <div className="producto-info">
+          <div key={producto.id} className="item-producto">
+            <img src={producto.imagen} alt={`Imagen de ${producto.nombre}`} className="logo-producto" />
+            <div className="info-producto">
               <h3>{producto.nombre}</h3>
               <p>{producto.descripcion}</p>
               <p>Precio: ${producto.precio}</p>
-              <button className="view-products-button" onClick={() => agregarAlPedido(producto)}>Agregar al Pedido</button>
+              <button className="boton-agregar-producto" onClick={() => agregarAlPedido(producto)}>Agregar al Pedido</button>
             </div>
           </div>
         ))}
-        <button className="back-button" onClick={() => cambiarPagina('restaurantes')}>Volver a Restaurantes</button>
+        <button className="boton-volver" onClick={() => cambiarPagina('restaurantes')}>Volver a Restaurantes</button>
       </div>
       
-      <div className="pedido-container">
+      <div className="contenedor-pedido">
         <h2>Pedido</h2>
         {pedido.length === 0 ? (
           <p>No hay productos en el pedido.</p>
         ) : (
           pedido.map(item => (
-            <div key={item.id} className="pedido-item">
+            <div key={item.id} className="item-pedido">
               <h3>{item.nombre}</h3>
               <p>Cantidad: {item.cantidad}</p>
               <p>Precio total: ${item.precio * item.cantidad}</p>
-              <button className="eliminar-button" onClick={() => eliminarDelPedido(item.id)}>Eliminar</button>
+              <button className="boton-eliminar" onClick={() => eliminarDelPedido(item.id)}>Eliminar</button>
             </div>
           ))
         )}
-        <div className="pedido-subtotal">
+        <div className="subtotal-pedido">
           <h3>Subtotal: ${calcularSubtotal()}</h3>
         </div>
       </div>

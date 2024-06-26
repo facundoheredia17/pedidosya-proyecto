@@ -1,8 +1,8 @@
 .restaurantes-container {
-  width: 80%; 
+  width: 80%;
   max-width: 1000px;
-  margin: 50px auto; 
-  padding: 20px; 
+  margin: 50px auto;
+  padding: 20px;
 }
 
 .restaurante-item {
@@ -18,9 +18,9 @@
 
 .restaurante-logo {
   width: 100px;
-  height: auto; 
-  margin-right: 20px; 
-  flex-shrink: 0; 
+  height: auto;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
 .restaurante-info {
@@ -30,24 +30,24 @@
 
 .restaurante-info h3 {
   font-size: 20px;
-  color: #333; 
-  margin-bottom: 5px; 
+  color: #333;
+  margin-bottom: 5px;
 }
 
 .restaurante-info p {
-  color: #666; 
-  font-size: 16px; 
-  margin-bottom: 10px; 
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .restaurante-info button {
-  background-color: #ff2a3f; 
+  background-color: #ff2a3f;
   color: white;
-  border: none; 
-  padding: 8px 16px; 
+  border: none;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 14px; 
-  border-radius: 5px; 
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .restaurante-info button:hover {

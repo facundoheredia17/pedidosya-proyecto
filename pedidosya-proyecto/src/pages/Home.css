@@ -8,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.home-container {
+.contenedor-inicio {
   max-width: 800px;
   margin: 100px auto;
   padding: 20px;
@@ -16,7 +16,7 @@ body {
   flex-direction: column;
 }
 
-.seccion-home,
+.seccion-inicio,
 .seccion-info {
   background-color: rgba(248, 248, 248, 0.5);
   padding: 40px;
@@ -26,13 +26,13 @@ body {
   font-weight: bolder;
 }
 
-.titulo-home {
+.titulo-inicio {
   font-size: 28px;
   color: #000000;
   margin-bottom: 10px;
 }
 
-.descripcion-home,
+.descripcion-inicio,
 .descripcion-info {
   font-size: 18px;
   color: #000000;

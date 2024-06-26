@@ -28,18 +28,22 @@ const Pedidos = () => {
 
   return (
     <div className="pedidos-container">
-      <h2 className="pedidos-title">Pedidos</h2>
-      {pedidos.map(pedido => (
+      <h2 className="pedidos-titulo">Pedidos</h2>
+      {pedidos.map((pedido) => (
         <div key={pedido.id} className="pedido-card">
-          <h3 className="restaurante-name">Restaurante: {pedido.restaurante}</h3>
-          <ul className="productos-list">
-            {pedido.productos.map(item => (
+          <h3 className="nombre-restaurante">Restaurante: {pedido.restaurante}</h3>
+          <ul className="lista-produc">
+            {pedido.productos.map((item) => (
               <li key={item.id} className="producto-item-pedidos">
                 {item.nombre} - Cantidad: {item.cantidad} - Precio: ${item.precio}
               </li>
             ))}
           </ul>
-          <p className={`estado-pedido ${pedido.estado === 'Entregado' ? 'entregado' : 'en-proceso'}`}>
+          <p
+            className={`estado-pedido ${
+              pedido.estado === 'Entregado' ? 'entregado' : 'en-proceso'
+            }`}
+          >
             Estado: {pedido.estado}
           </p>
           <p className="total-pedido">Total: ${calcularTotal(pedido.productos)}</p>
