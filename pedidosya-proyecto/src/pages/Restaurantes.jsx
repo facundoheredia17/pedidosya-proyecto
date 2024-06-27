@@ -4,7 +4,7 @@ import './Restaurantes.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const Restaurantes = ({ cambiarPagina }) => {
+const Restaurantes = () => {
   const restaurantes = [
     {
       id: 1,
@@ -35,7 +35,7 @@ const Restaurantes = ({ cambiarPagina }) => {
             <div className="restaurante-info">
               <h3>{restaurante.nombre}</h3>
               <p>{restaurante.descripcion}</p>
-              <Link to={`/productos-${restaurante.id}`} className="boton">
+              <Link to={`/productos/${restaurante.id}`} className="boton">
                 Ver Productos
               </Link>
             </div>

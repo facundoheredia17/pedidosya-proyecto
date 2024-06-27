@@ -70,3 +70,19 @@
 .boton-inicio-sesion:hover {
   background-color: #d44141;
 }
+
+.btn-registro {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff2a3f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn-registro:hover {
+  background-color: #d44141;
+}

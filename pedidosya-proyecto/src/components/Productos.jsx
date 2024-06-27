@@ -1,51 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import './Productos.css';
 
-const Productos = ({ restauranteId, cambiarPagina }) => {
+const Productos = () => {
+  const { restauranteId } = useParams();
   const [pedido, setPedido] = useState([]);
+  const [productos, setProductos] = useState([]);
 
-  let productos = [];
-  if (restauranteId === 1) {
-    productos = [
-      {
-        id: 1,
-        nombre: 'Milanesa a la napolitana con guarnición',
-        descripcion: 'Milanesa de carne, salsa de tomate, queso mozzarella, y orégano, incluye papas fritas.',
-        precio: 5000,
-        imagen: '/milanesa.webp',
-      },
-      {
-        id: 2,
-        nombre: 'Pizza especial grande',
-        descripcion: 'Masa de elaboración casera, salsa de tomate, jamón, queso mozzarella, huevo, aceitunas, morrón y cilantro.',
-        precio: 5000,
-        imagen: '/pizza.png',
-      },
-    ];
-  } else if (restauranteId === 2) {
-    productos = [
-      {
-        id: 3,
-        nombre: 'Hamburguesa triple con papas fritas',
-        descripcion: 'Triple hamburguesa de carne, triple cheddar, tomate, cebolla crispy, queso cremoso, acompañada de papas fritas.',
-        precio: 6500,
-        imagen: '/hamburguesa.jpg',
-      },
-      {
-        id: 4,
-        nombre: 'Cheeseburguer doble con papas fritas',
-        descripcion: 'Doble hamburguesa de carne, doble cheddar, ketchup y cebolla picada, acompañada de papas fritas.',
-        precio: 4000,
-        imagen: '/hamburguesadoble.webp',
-      },
-    ];
-  }
+  useEffect(() => {
+    if (restauranteId === '1') {
+      setProductos([
+        {
+          id: 1,
+          nombre: 'Milanesa a la napolitana con guarnición',
+          descripcion: 'Milanesa de carne, salsa de tomate, queso mozzarella, y orégano, incluye papas fritas.',
+          precio: 5000,
+          imagen: '/milanesa.webp',
+        },
+        {
+          id: 2,
+          nombre: 'Pizza especial grande',
+          descripcion: 'Masa de elaboración casera, salsa de tomate, jamón, queso mozzarella, huevo, aceitunas, morrón y cilantro.',
+          precio: 5000,
+          imagen: '/pizza.png',
+        },
+      ]);
+    } else if (restauranteId === '2') {
+      setProductos([
+        {
+          id: 3,
+          nombre: 'Hamburguesa triple con papas fritas',
+          descripcion: 'Triple hamburguesa de carne, triple cheddar, tomate, cebolla crispy, queso cremoso, acompañada de papas fritas.',
+          precio: 6500,
+          imagen: '/hamburguesa.jpg',
+        },
+        {
+          id: 4,
+          nombre: 'Cheeseburguer doble con papas fritas',
+          descripcion: 'Doble hamburguesa de carne, doble cheddar, ketchup y cebolla picada, acompañada de papas fritas.',
+          precio: 4000,
+          imagen: '/hamburguesadoble.webp',
+        },
+      ]);
+    }
+  }, [restauranteId]);
 
   const agregarAlPedido = (producto) => {
-    setPedido(prevPedido => {
-      const productoExistente = prevPedido.find(item => item.id === producto.id);
+    setPedido((prevPedido) => {
+      const productoExistente = prevPedido.find((item) => item.id === producto.id);
       if (productoExistente) {
-        return prevPedido.map(item =>
+        return prevPedido.map((item) =>
           item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
         );
       } else {
@@ -55,14 +59,14 @@ const Productos = ({ restauranteId, cambiarPagina }) => {
   };
 
   const eliminarDelPedido = (productoId) => {
-    setPedido(prevPedido => {
-      const productoExistente = prevPedido.find(item => item.id === productoId);
+    setPedido((prevPedido) => {
+      const productoExistente = prevPedido.find((item) => item.id === productoId);
       if (productoExistente.cantidad > 1) {
-        return prevPedido.map(item =>
+        return prevPedido.map((item) =>
           item.id === productoId ? { ...item, cantidad: item.cantidad - 1 } : item
         );
       } else {
-        return prevPedido.filter(item => item.id !== productoId);
+        return prevPedido.filter((item) => item.id !== productoId);
       }
     });
   };
@@ -75,7 +79,7 @@ const Productos = ({ restauranteId, cambiarPagina }) => {
     <div className="pagina-productos">
       <div className="contenedor-productos">
         <h2>Productos</h2>
-        {productos.map(producto => (
+        {productos.map((producto) => (
           <div key={producto.id} className="item-producto">
             <img src={producto.imagen} alt={`Imagen de ${producto.nombre}`} className="logo-producto" />
             <div className="info-producto">
@@ -86,15 +90,15 @@ const Productos = ({ restauranteId, cambiarPagina }) => {
             </div>
           </div>
         ))}
-        <button className="boton-volver" onClick={() => cambiarPagina('restaurantes')}>Volver a Restaurantes</button>
+        <Link to="/restaurantes" className="boton-volver">Volver a Restaurantes</Link>
       </div>
-      
+
       <div className="contenedor-pedido">
         <h2>Pedido</h2>
         {pedido.length === 0 ? (
           <p>No hay productos en el pedido.</p>
         ) : (
-          pedido.map(item => (
+          pedido.map((item) => (
             <div key={item.id} className="item-pedido">
               <h3>{item.nombre}</h3>
               <p>Cantidad: {item.cantidad}</p>

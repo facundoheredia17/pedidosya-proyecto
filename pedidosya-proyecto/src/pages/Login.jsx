@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './MainLogin.css';
+import { Link } from 'react-router-dom';
 
-const Login = ({ cambiarPagina, setAutenticado }) => {
+const Login = ({ setAutenticado }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +23,6 @@ const Login = ({ cambiarPagina, setAutenticado }) => {
     if (usuarioValido) {
       localStorage.setItem('autenticado', 'true');
       setAutenticado(true);
-      cambiarPagina('home');
     } else {
       alert('Credenciales incorrectas');
     }
@@ -34,25 +34,18 @@ const Login = ({ cambiarPagina, setAutenticado }) => {
         <h2 className="titulo-inicio-sesion">Iniciar Sesión</h2>
         <div className="grupo-formulario">
           <label htmlFor="email">Email/Teléfono:</label>
-          <input
-            type="text"
-            id="email"
-            value={email}
+          <input type="text" id="email" value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+            required/>
         </div>
         <div className="grupo-formulario">
           <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
+          <input type="password" id="password" value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            required/>
         </div>
         <button type="submit" className="boton-inicio-sesion">Iniciar Sesión</button>
+        <Link to={"/registrarse"} className="btn btn-registro">Registrarse</Link>
       </form>
     </div>
   );

@@ -7,6 +7,9 @@ import Restaurantes from './pages/Restaurantes';
 import Pedidos from './pages/Pedidos';
 import NoExiste from './components/NoExiste';
 import Productos from './components/Productos'
+import Registrarse from './pages/Registrarse'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const App = () => {
   const cerrarSesion = () => {
@@ -22,8 +25,10 @@ const App = () => {
           <Route path="/restaurantes" element={<Restaurantes />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/login" element={<Login />}/>
+          <Route path="/productos/:restauranteId" element={<Productos />}/>
+          <Route path="/registrarse" element={<Registrarse />} />
+          <Route path="/registrarse/:id" element={<Registrarse />} />
           <Route path="*" element={<NoExiste />} />
-          <Route path="/productos" element={<Productos />}/>
         </Routes>
       </div>
     </BrowserRouter>
