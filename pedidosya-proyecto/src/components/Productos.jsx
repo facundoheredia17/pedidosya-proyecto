@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './Productos.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Productos = () => {
   const { restauranteId } = useParams();
@@ -76,6 +78,8 @@ const Productos = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="pagina-productos">
       <div className="contenedor-productos">
         <h2>Productos</h2>
@@ -112,6 +116,8 @@ const Productos = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

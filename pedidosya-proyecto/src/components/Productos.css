@@ -67,7 +67,7 @@
   border-radius: 8px;
   background-color: #f9f9f9;
   overflow-y: auto;
-  max-height: calc(100vh - 100px);
+  max-height: calc(80vh - 80px);
 }
 
 
