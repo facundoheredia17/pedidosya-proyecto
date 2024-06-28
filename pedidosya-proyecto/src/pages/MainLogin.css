@@ -46,7 +46,7 @@
 .grupo-formulario label {
   display: block;
   margin-bottom: 5px;
-  color: #666;
+  color: #302f2f;
 }
 
 .grupo-formulario input {
@@ -71,7 +71,7 @@
   background-color: #d44141;
 }
 
-.btn-registro {
+.btn-registro  {
   width: 100%;
   padding: 10px;
   background-color: #ff2a3f;
