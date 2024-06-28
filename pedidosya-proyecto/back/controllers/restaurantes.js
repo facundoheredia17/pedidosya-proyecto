@@ -15,7 +15,6 @@ const unRestaurante = (req, res) => {
     if (err) throw err;
     res.send(results);
   });
-  console.log(req);
 };
 
 const crearRestaurante = (req, res) => {
