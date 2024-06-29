@@ -1,0 +1,61 @@
+.pagina-editar-restaurante {
+    padding: 20px;
+  }
+  
+  .contenedor-restaurante {
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+  }
+  
+  .tabla-restaurante {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .tabla-restaurante th,
+  .tabla-restaurante td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .tabla-restaurante th {
+    background-color: white;
+  }
+  
+  .logo-restaurante {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .boton-ver,
+  .boton-editar,
+  .boton-borrar,
+  .boton-guardar {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .boton-ver {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .boton-editar {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .boton-borrar {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .boton-guardar {
+    background-color: #ff9800;
+    color: white;
+  }
+  

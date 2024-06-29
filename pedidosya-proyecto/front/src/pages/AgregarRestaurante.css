@@ -1,0 +1,47 @@
+.pagina-agregar-restaurante {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('peyabg.jpg');
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+  
+  .contenedor-formulario {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grupo-form {
+    margin-bottom: 15px;
+  }
+  
+  .grupo-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .grupo-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .boton-agregar {
+    background-color: #ff2a3f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .boton-agregar:hover {
+    background-color: #aa1d2b;
+  }
+  

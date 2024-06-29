@@ -54,6 +54,26 @@
   background-color: #aa1d2b;
 }
 
+.boton-agregar-restaurante-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boton-agregar-restaurante {
+  background-color: #ff2a3f;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.boton-agregar-restaurante:hover {
+  background-color: #aa1d2b;
+}
+
+
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
   .restaurantes-container {

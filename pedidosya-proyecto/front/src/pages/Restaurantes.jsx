@@ -35,12 +35,17 @@ const Restaurantes = () => {
             <div className="restaurante-info">
               <h3>{restaurante.nombre}</h3>
               <p>{restaurante.descripcion}</p>
-              <Link to={`/productos/${restaurante.id}`} className="boton">
+              <Link to={`/restaurantes/${restaurante.id}/productos`} className="boton">
                 Ver Productos
               </Link>
             </div>
           </div>
         ))}
+        <div className="boton-agregar-restaurante-container">
+          <Link to="/restaurantes/agregar" className="boton-agregar-restaurante">
+            Agregar Restaurante
+          </Link>
+        </div>
       </div>
       <Footer />
     </>
