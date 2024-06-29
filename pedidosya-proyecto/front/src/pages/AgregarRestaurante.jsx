@@ -1,19 +1,48 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import './AgregarRestaurante.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import axios from "axios";
+import "./AgregarRestaurante.css";
+import {
+  URL_RESTAURANTES_AGREGAR,
+  URL_RESTAURANTES,
+} from "../../constants/constantes";
 
 const AgregarRestaurante = () => {
-  const [nombre, setNombre] = useState('');
-  const [direccion, setDireccion] = useState('');
-  const [logo, setLogo] = useState('');
+  const initialState = {
+    nombre: "",
+    direccion: "",
+    logo: "",
+  };
+  const [datosForm, setDatosForm] = useState(initialState);
+  //const [ultimoId, setUltimoId] = useState(null);
+
   const navigate = useNavigate();
 
-  const handleAgregar = () => {
-    alert('Restaurante agregado exitosamente');
-    // Asumiendo que el nuevo restaurante tiene un ID de 1 para este ejemplo
-    navigate('/restaurantes/editar/1');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await axios.post(URL_RESTAURANTES_AGREGAR, {
+        nombre: datosForm.nombre,
+        direccion: datosForm.direccion,
+        logo: datosForm.logo,
+      });
+      //Validar Campos
+      response
+        ? alert("Restaurante agregado exitosamente")
+        : alert("Ha ocurrido un error");
+      // Conseguir el ID del ultimo restaurante agregado
+      // console.log(response)
+      // setUltimoId(response.data.id)
+      // navigate(`/restaurantes/:${ultimoId}/productos`);
+    } catch (error) {
+      console.error("Error al crear restaurante");
+    }
+  };
+
+  const handleChange = (e) => {
+    setDatosForm({ ...datosForm, [e.target.name]: e.target.value });
   };
 
   return (
@@ -22,14 +51,14 @@ const AgregarRestaurante = () => {
       <div className="pagina-agregar-restaurante">
         <div className="contenedor-formulario">
           <h2>Agregar Restaurante</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grupo-form">
               <label htmlFor="nombre">Nombre:</label>
               <input
                 type="text"
                 id="nombre"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
+                name="nombre"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -38,8 +67,8 @@ const AgregarRestaurante = () => {
               <input
                 type="text"
                 id="direccion"
-                value={direccion}
-                onChange={(e) => setDireccion(e.target.value)}
+                name="direccion"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -48,12 +77,12 @@ const AgregarRestaurante = () => {
               <input
                 type="text"
                 id="logo"
-                value={logo}
-                onChange={(e) => setLogo(e.target.value)}
+                name="logo"
+                onChange={handleChange}
                 required
               />
             </div>
-            <button type="button" className="boton-agregar" onClick={handleAgregar}>
+            <button type="submit" className="boton-agregar">
               Agregar
             </button>
           </form>

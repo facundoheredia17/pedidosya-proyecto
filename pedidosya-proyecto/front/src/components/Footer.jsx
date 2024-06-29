@@ -5,7 +5,7 @@ import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-sv
 
 const Footer = () => {
   return (
-    <footer className="contenedor-pie">
+    <footer className="contenedor-pie mt-5">
       <div className="contenido-pie">
         <div className="logo-pie">Pedidos Ya</div>
         

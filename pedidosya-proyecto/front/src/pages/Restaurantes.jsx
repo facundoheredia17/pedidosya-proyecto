@@ -1,41 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './Restaurantes.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import axios from 'axios';
+import { URL_RESTAURANTES } from '../../constants/constantes';
 
 const Restaurantes = () => {
-  const restaurantes = [
-    {
-      id: 1,
-      nombre: 'La Pizzada Centro',
-      logo: '/pizzadalogo.png',
-      descripcion: '25 de Mayo y 24 de Septiembre',
-    },
-    {
-      id: 2,
-      nombre: 'Leno Barrio Norte',
-      logo: '/lenologo.webp',
-      descripcion: 'Virgen de la Merced 885',
-    },
-  ];
+
+  const [restaurantes,setRestaurantes] = useState([])
+  const getRestaurantes = async() =>{
+    let response = await axios.get(URL_RESTAURANTES)
+    console.log(response.data)
+    setRestaurantes(response.data)
+  }
+
+  useEffect(()=>{
+    getRestaurantes()
+  },[])
 
   return (
     <>
       <Navbar />
-      <div className="restaurantes-container">
+      <div className="restaurantes-container pt-5">
         <h2>Restaurantes</h2>
-        {restaurantes.map((restaurante) => (
-          <div key={restaurante.id} className="restaurante-item">
+        {restaurantes.map((restaurantes) => (
+          <div key={restaurantes.id} className="restaurante-item">
             <img
-              src={restaurante.logo}
-              alt={`Logo de ${restaurante.nombre}`}
+              src={restaurantes.logo}
+              alt={`Logo de ${restaurantes.nombre}`}
               className="restaurante-logo"
             />
             <div className="restaurante-info">
-              <h3>{restaurante.nombre}</h3>
-              <p>{restaurante.descripcion}</p>
-              <Link to={`/restaurantes/${restaurante.id}/productos`} className="boton">
+              <h3>{restaurantes.nombre}</h3>
+              <p>{restaurantes.direccion}</p>
+              <Link to={`/restaurantes/${restaurantes.id}/productos`} className="boton">
                 Ver Productos
               </Link>
             </div>
