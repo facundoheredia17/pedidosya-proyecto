@@ -1,7 +1,9 @@
 const { connection } = require("../config/DB");
 
 const todosProductos = (req, res) => {
-  const query = "select * from productos";
+  const idRestaurante=req.params.restauranteId;
+  console.log("el id del restaurante es "+ idRestaurante)
+  const query = `select * from productos where id_restaurante=${idRestaurante}`;
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.json(results);

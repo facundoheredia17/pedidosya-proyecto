@@ -86,3 +86,7 @@
 .btn-registro:hover {
   background-color: #d44141;
 }
+  
+body{
+  flex:1;
+}

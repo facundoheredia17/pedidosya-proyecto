@@ -1,107 +1,97 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import './EditarRestaurante.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { Form, FormControl } from "react-bootstrap";
+import "./EditarRestaurante.css";
+import axios from "axios";
+import { URL_RESTAURANTES, URL_RESTAURANTES_EDITAR } from "../../constants/constantes";
 
 const EditarRestaurante = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [restaurante, setRestaurante] = useState({
-    nombre: 'Leno Barrio Norte',
-    direccion: 'Virgen de la Merced 885',
-    logo: '/lenologo.webp',
-  });
+  const initialState = {
+    nombre:"",
+    direccion:"",
+    logo:""
+  }
+  const [restaurante, setRestaurante] = useState(initialState);
 
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleEdit = () => {
-    setIsEditing(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await axios.put(URL_RESTAURANTES_EDITAR + id,{
+        nombre:restaurante.nombre,
+        direccion:restaurante.direccion,
+        logo:restaurante.logo
+      });
+      if (response.status == 200) {
+        alert("Restaurante actualizado correctamente");
+        navigate("/restaurantes");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleSave = () => {
-    alert('Restaurante editado exitosamente');
-    setIsEditing(false);
+  const handleChange = (e) => {
+    setRestaurante({...restaurante,[e.target.name]:e.target.value})
+  }
+
+  const getRestaurante = async () => {
+    let response = await axios.get(URL_RESTAURANTES + id);
+    console.log(response.data);
+    if (response.status == 200) {
+      setRestaurante(response.data[0]);
+    }
   };
 
-  const handleDelete = () => {
-    alert('Restaurante borrado exitosamente');
-    navigate('/restaurantes');
-  };
-
+  useEffect(() => {
+    getRestaurante();
+  }, []);
   return (
     <>
       <Navbar />
-      <div className="pagina-editar-restaurante">
-        <div className="contenedor-restaurante">
-          <h2>{isEditing ? 'Editar Restaurante' : 'Detalles del Restaurante'}</h2>
-          <table className="tabla-restaurante">
-            <thead>
-              <tr>
-                <th>Logo</th>
-                <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <img
-                    src={restaurante.logo}
-                    alt={`Logo de ${restaurante.nombre}`}
-                    className="logo-restaurante"
-                  />
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={restaurante.nombre}
-                      onChange={(e) =>
-                        setRestaurante({ ...restaurante, nombre: e.target.value })
-                      }
-                    />
-                  ) : (
-                    restaurante.nombre
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={restaurante.direccion}
-                      onChange={(e) =>
-                        setRestaurante({ ...restaurante, direccion: e.target.value })
-                      }
-                    />
-                  ) : (
-                    restaurante.direccion
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <button className="boton-guardar" onClick={handleSave}>
-                      Guardar
-                    </button>
-                  ) : (
-                    <>
-                      <button className="boton-ver" onClick={() => alert('Ver detalles')}>
-                        Ver
-                      </button>
-                      <button className="boton-editar" onClick={handleEdit}>
-                        Editar
-                      </button>
-                      <button className="boton-borrar" onClick={handleDelete}>
-                        Borrar
-                      </button>
-                    </>
-                  )}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div className="pagina-agregar-restaurante">
+        <div className="contenedor-formulario">
+          <h2>Editar Restaurante</h2>
+          <Form onSubmit={handleSubmit}>
+            <p >Nombre:</p>
+            <FormControl
+              className="grupo-form"
+              type="text"
+              value={restaurante.nombre}
+              onChange={handleChange}
+              name="nombre"
+              required
+            />
+            <p >Dirección:</p>
+            <FormControl
+              className="grupo-form"
+              type="text"
+              value={restaurante.direccion}
+              onChange={handleChange}
+              name="direccion"
+              required
+            />
+            <p>Logo:</p>
+            <FormControl
+              className="grupo-form"
+              type="text"
+              value={restaurante.logo}
+              onChange={handleChange}
+              name="logo"
+              required
+            />
+
+            <button type="submit" className="boton-agregar">
+              Actualizar
+            </button>
+            <Link to='/restaurantes/' className="btn btn-info ml-4">
+              Cancelar
+            </Link>
+          </Form>
         </div>
       </div>
       <Footer />

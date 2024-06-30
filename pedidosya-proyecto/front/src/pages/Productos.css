@@ -84,4 +84,7 @@
   border-top: 1px solid #ccc;
   margin-top: 20px;
   text-align: right;
+}  
+body{
+  flex:1;
 }

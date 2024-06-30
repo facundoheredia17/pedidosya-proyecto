@@ -71,6 +71,9 @@
 
 .boton-agregar-restaurante:hover {
   background-color: #aa1d2b;
+}  
+body{
+  flex:1;
 }
 
 

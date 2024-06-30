@@ -71,3 +71,7 @@
   text-align: right;
   color: #333;
 }
+  
+body{
+  flex:1;
+}

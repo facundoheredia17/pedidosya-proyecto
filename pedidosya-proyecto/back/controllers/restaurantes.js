@@ -1,7 +1,7 @@
-const { connection } = require("../config/DB");
+const { connection } = require('../config/DB');
 
 const todosRestaurantes = (req, res) => {
-  const query = "select * from restaurantes";
+  const query = 'SELECT * FROM restaurantes';
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.json(results);
@@ -10,7 +10,7 @@ const todosRestaurantes = (req, res) => {
 
 const unRestaurante = (req, res) => {
   const id = req.params.id;
-  const query = `select * from restaurantes where id=${id}`;
+  const query = `SELECT * FROM restaurantes WHERE id=${id}`;
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.send(results);
@@ -19,7 +19,7 @@ const unRestaurante = (req, res) => {
 
 const crearRestaurante = (req, res) => {
   const { nombre, direccion, logo } = req.body;
-  const query = `insert into restaurantes (nombre,direccion,logo) values ('${nombre}','${direccion}','${logo}')`;
+  const query = `INSERT INTO restaurantes (nombre, direccion, logo) VALUES ('${nombre}', '${direccion}', '${logo}')`;
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.send(results);
@@ -29,7 +29,7 @@ const crearRestaurante = (req, res) => {
 const editarRestaurante = (req, res) => {
   const id = req.params.id;
   const { nombre, direccion, logo } = req.body;
-  const query = `update restaurantes set nombre='${nombre}', direccion='${direccion}',logo='${logo}' where id=${id}`;
+  const query = `UPDATE restaurantes SET nombre='${nombre}', direccion='${direccion}', logo='${logo}' WHERE id=${id}`;
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.send(results);
@@ -38,7 +38,7 @@ const editarRestaurante = (req, res) => {
 
 const borrarRestaurante = (req, res) => {
   const id = req.params.id;
-  const query = `delete from restaurantes where id=${id}`;
+  const query = `DELETE FROM restaurantes WHERE id=${id}`;
   connection.query(query, (err, results) => {
     if (err) throw err;
     res.send(results);

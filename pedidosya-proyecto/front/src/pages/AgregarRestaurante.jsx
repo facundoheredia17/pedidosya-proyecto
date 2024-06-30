@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import axios from "axios";
-import "./AgregarRestaurante.css";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import axios from 'axios';
 import {
   URL_RESTAURANTES_AGREGAR,
-  URL_RESTAURANTES,
-} from "../../constants/constantes";
+} from '../../constants/constantes';
+import './AgregarRestaurante.css';
 
 const AgregarRestaurante = () => {
   const initialState = {
-    nombre: "",
-    direccion: "",
-    logo: "",
+    nombre: '',
+    direccion: '',
+    logo: '',
   };
   const [datosForm, setDatosForm] = useState(initialState);
-  //const [ultimoId, setUltimoId] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,16 +26,14 @@ const AgregarRestaurante = () => {
         direccion: datosForm.direccion,
         logo: datosForm.logo,
       });
-      //Validar Campos
-      response
-        ? alert("Restaurante agregado exitosamente")
-        : alert("Ha ocurrido un error");
-      // Conseguir el ID del ultimo restaurante agregado
-      // console.log(response)
-      // setUltimoId(response.data.id)
-      // navigate(`/restaurantes/:${ultimoId}/productos`);
+      if (response) {
+        alert('Restaurante agregado exitosamente');
+        navigate('/restaurantes');
+      } else {
+        alert('Ha ocurrido un error');
+      }
     } catch (error) {
-      console.error("Error al crear restaurante");
+      console.error('Error al crear restaurante', error);
     }
   };
 
