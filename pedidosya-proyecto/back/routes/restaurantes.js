@@ -1,6 +1,6 @@
 const express = require("express");
 
-const productosRouter = express.Router();
+const restaurantesRouter = express.Router();
 
 const {
   todosRestaurantes,
@@ -12,10 +12,10 @@ const {
 
 // Peticiones HTTP
 
-productosRouter.get("/", todosRestaurantes);
-productosRouter.get("/:id", unRestaurante);
-productosRouter.post("/crear", crearRestaurante);
-productosRouter.put("/editar/:id", editarRestaurante);
-productosRouter.delete("/eliminar/:id", borrarRestaurante);
+restaurantesRouter.get("/", todosRestaurantes);
+restaurantesRouter.get("/:id", unRestaurante);
+restaurantesRouter.post("/crear", crearRestaurante);
+restaurantesRouter.put("/editar/:id", editarRestaurante);
+restaurantesRouter.delete("/eliminar/:id", borrarRestaurante);
 
-module.exports = productosRouter;
+module.exports = restaurantesRouter;

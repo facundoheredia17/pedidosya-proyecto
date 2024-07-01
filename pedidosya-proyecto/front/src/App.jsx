@@ -10,8 +10,10 @@ import Productos from './pages/Productos';
 import Registrarse from './pages/Registrarse';
 import AgregarRestaurante from './pages/AgregarRestaurante';
 import EditarRestaurante from './pages/EditarRestaurante';
+import EditarProducto from './pages/EditarProducto';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import AgregarProducto from './pages/AgregarProducto';
 
 const App = () => {
   const cerrarSesion = () => {
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/restaurantes/agregar" element={<AgregarRestaurante />} />
           <Route path="/restaurantes/editar/:id" element={<EditarRestaurante />} />
           <Route path="/restaurantes/:restauranteId/productos" element={<Productos />} />
+          <Route path="/restaurantes/:restauranteId/productos/agregar" element={<AgregarProducto />} />
+          <Route path="/restaurantes/:restauranteId/productos/editar/:id" element={<EditarProducto />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registrarse" element={<Registrarse />} />

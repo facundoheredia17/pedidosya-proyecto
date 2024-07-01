@@ -8,14 +8,14 @@ const {
   crearProducto,
   editarProducto,
   borrarProducto,
-} = require("../controllers/productos");
+} = require("../controllers/Productos");
 
 //Peticiones HTTP
 
-productosRouter.get("/:restauranteId/productos", todosProductos);
-productosRouter.get("/:restauranteId/productos/:id", unProducto);
-productosRouter.post("/:restauranteId/productos/crear", crearProducto);
-productosRouter.put("/:restauranteId/productos/editar/:id", editarProducto);
-productosRouter.delete("/:restauranteId/productos/eliminar/:id", borrarProducto);
+productosRouter.get("/:id_restaurante/productos", todosProductos);
+productosRouter.post("/:id_restaurante/productos/crear", crearProducto);
+productosRouter.get("/:id_restaurante/productos/:id", unProducto);
+productosRouter.put("/:id_restaurante/productos/editar/:id", editarProducto);
+productosRouter.delete("/:id_restaurante/productos/eliminar/:id", borrarProducto);
 
 module.exports = productosRouter;
