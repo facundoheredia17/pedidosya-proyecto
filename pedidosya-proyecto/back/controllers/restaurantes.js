@@ -1,4 +1,4 @@
-const { connection } = require('../config/DB');
+const { connection } = require('../config/db');
 
 const todosRestaurantes = (req, res) => {
   const query = 'SELECT * FROM restaurantes';

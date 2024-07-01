@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './MainLogin.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { URL_LOGIN } from '../../constants/constantes';
 
 const Login = ({ setAutenticado }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const usuariosValidos = [
-    { email: 'facundoheredia951@gmail.com', password: '123456789' },
-    { email: 'hsanchez95@gmail.com', password: '123456789' },
-    { email: 'admin@pedidosya.com', password: 'adminpeya' },
-    { email: '3816095123', password: '123456789' },
-  ];
-
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    const usuarioValido = usuariosValidos.find(
-      (usuario) => usuario.email === email && usuario.password === password
-    );
-
-    if (usuarioValido) {
-      console.log('Usuario válido');
-      localStorage.setItem('autenticado', 'true');
-      setAutenticado(true);
-    } else {
-      console.log('Credenciales incorrectas');
+    try {
+      const response = await axios.post(URL_LOGIN, { email, password });
+      if (response.status === 200) {
+        setAutenticado();
+        alert(`Usuario autenticado, bienvenido ${response.data.nombre}`);
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
       alert('Credenciales incorrectas');
     }
   };
@@ -40,7 +32,7 @@ const Login = ({ setAutenticado }) => {
         <form className="formulario-inicio-sesion" onSubmit={handleLogin}>
           <h2 className="titulo-inicio-sesion">Iniciar Sesión</h2>
           <div className="grupo-formulario">
-            <label htmlFor="email">Email/Teléfono:</label>
+            <label htmlFor="email">Email:</label>
             <input
               type="text"
               id="email"
@@ -59,9 +51,7 @@ const Login = ({ setAutenticado }) => {
               required
             />
           </div>
-          <Link to={'/home'} className="btn btn-registro">
-            Iniciar Sesión
-          </Link>
+          <button type="submit" className="btn btn-registro">Iniciar Sesión</button>
           <Link to={'/registrarse'} className="btn btn-registro">
             Registrarse
           </Link>

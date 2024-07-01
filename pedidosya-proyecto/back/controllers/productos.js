@@ -1,4 +1,4 @@
-const { connection } = require("../config/DB");
+const { connection } = require("../config/db");
 
 const todosProductos = (req, res) => {
   const id_restaurante = req.params.id_restaurante;

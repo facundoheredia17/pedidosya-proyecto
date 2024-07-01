@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = ({ cerrarSesion }) => {
+const Navbar = ({ logueado, cerrarSesion }) => {
   const handleCerrarSesion = () => {
     cerrarSesion();
   };
@@ -26,9 +26,15 @@ const Navbar = ({ cerrarSesion }) => {
         </li>
       </ul>
       <div className="boton-cerrar-sesion">
-        <Link to="/login" className="boton" onClick={handleCerrarSesion}>
-          <img src="/logout.png" alt="Cerrar Sesión" className="icono" />
-        </Link>
+        {logueado ? (
+          <button className="boton" onClick={handleCerrarSesion}>
+            <img src="/logout.png" alt="Cerrar Sesión" className="icono" />
+          </button>
+        ) : (
+          <Link to="/login" className="boton">
+            <img src="/login.png" alt="Iniciar Sesión" className="icono" />
+          </Link>
+        )}
       </div>
     </nav>
   );
