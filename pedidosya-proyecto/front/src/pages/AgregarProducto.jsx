@@ -21,7 +21,7 @@ const AgregarProducto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await axios.post(`http://localhost:8000/productos/${restauranteId}/productos/crear`, {
+      let response = await axios.post(`http://localhost:8000/restaurantes/${restauranteId}/productos/agregar`, {
         nombre: datosForm.nombre,
         precio: datosForm.precio,
         descripcion: datosForm.descripcion,

@@ -2,11 +2,12 @@ const express = require('express');
 const { connection } = require('./config/db');
 const restaurantesRouter = require('./routes/restaurantes');
 const productosRouter = require('./routes/productos');
+const usuariosRouter = require('./routes/usuarios');
+const iniciarSesionRouter = require('./routes/iniciarsesion');
+const pedidosRouter = require('./routes/pedidos');
 const cors = require('cors');
 const morgan = require('morgan');
 const compression = require('compression');
-const usuariosRouter = require('./routes/usuarios');
-const iniciarSesionRouter = require('./routes/iniciarsesion');
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ const port = process.env.PORT || 8000;
 app.use('/productos', productosRouter);
 app.use('/restaurantes', restaurantesRouter);
 app.use('/usuarios', usuariosRouter);
+app.use('/pedidos', pedidosRouter);
 app.use('/usuarios', iniciarSesionRouter);
 
 app.get('/', (req, res) => {

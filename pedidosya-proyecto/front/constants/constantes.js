@@ -4,3 +4,4 @@ export const URL_RESTAURANTES_ELIMINAR = 'http://localhost:8000/restaurantes/eli
 export const URL_RESTAURANTES_EDITAR = 'http://localhost:8000/restaurantes/editar/';
 export const URL_REGISTRARSE = 'http://localhost:8000/usuarios/registrar';
 export const URL_LOGIN = 'http://localhost:8000/usuarios/login';
+export const URL_PEDIDOS_AGREGAR = `http://localhost:8000/pedidos/crear`

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "./Productos.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ const Productos = () => {
   const { restauranteId } = useParams();
   const [pedido, setPedido] = useState([]);
   const [productos, setProductos] = useState([]);
+  const navigate = useNavigate();
 
   const getProductos = async () => {
     try {
@@ -21,14 +22,16 @@ const Productos = () => {
     }
   };
 
-  const handleChange = async(id) => {
-    console.log(id)
-    let response = await axios.delete(`http://localhost:8000/productos/${restauranteId}/productos/eliminar/${id}`);
-    if(response){
+  const handleChange = async (id) => {
+    console.log(id);
+    let response = await axios.delete(
+      `http://localhost:8000/productos/${restauranteId}/productos/eliminar/${id}`
+    );
+    if (response) {
       alert("Producto eliminado correctamente");
       getProductos();
     }
-  }
+  };
 
   useEffect(() => {
     getProductos();
@@ -68,7 +71,27 @@ const Productos = () => {
     });
   };
 
-  const calcularSubtotal = () => {
+  const finalizarPedido = async(e) =>{
+    e.preventDefault();
+    try {
+      const totalPedido = calcularTotal();
+      let response = await axios.post(`http://localhost:8000/pedidos/crear`, {
+        id_restaurante: restauranteId,
+        total: totalPedido,
+        estado: 'Pendiente'
+      });
+      if (response) {
+        alert("Pedido realizado exitosamente");
+        navigate(`/pedidos/`);
+      } else {
+        alert("Ha ocurrido un error");
+      }
+    } catch (error) {
+      console.error("Error al cargar pedido", error);
+    }
+  }
+
+  const calcularTotal = () => {
     return pedido.reduce(
       (total, item) => total + item.precio * item.cantidad,
       0
@@ -134,22 +157,30 @@ const Productos = () => {
           {pedido.length === 0 ? (
             <p>No hay productos en el pedido.</p>
           ) : (
-            pedido.map((item) => (
-              <div key={item.id} className="item-pedido">
-                <h3>{item.nombre}</h3>
-                <p>Cantidad: {item.cantidad}</p>
-                <p>Precio total: ${item.precio * item.cantidad}</p>
-                <button
-                  className="boton-eliminar"
-                  onClick={() => eliminarDelPedido(item.id)}
-                >
-                  Eliminar
-                </button>
-              </div>
-            ))
+            <div>
+              {pedido.map((item) => (
+                <div key={item.id} className="item-pedido">
+                  <h3>{item.nombre}</h3>
+                  <p>Cantidad: {item.cantidad}</p>
+                  <p>Subtotal: ${item.precio * item.cantidad}</p>
+                  <button
+                    className="boton-eliminar"
+                    onClick={() => eliminarDelPedido(item.id)}
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              ))}
+              <button
+                className="btn btn-success"
+                onClick={finalizarPedido}
+              >
+                Finalizar pedido
+              </button>
+            </div>
           )}
           <div className="subtotal-pedido">
-            <h3>Subtotal: ${calcularSubtotal()}</h3>
+            <h3>Total: ${calcularTotal()}</h3>
           </div>
         </div>
       </div>
